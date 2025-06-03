@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flappy Bird with CSS Clouds</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="start-screen">
+    <h1>Flappy Bird</h1>
+    <p>High Score: <span id="high-score">0</span></p>
+    <button id="start-btn">Start Game</button>
+  </div>
+
+  <div class="game-container" style="display: none;">
+    <div class="background">
+      <div class="clouds"></div>
+      <div class="clouds clouds--slow"></div>
+    </div>
+    <div id="bird">
+      <div class="wing left-wing"></div>
+      <div class="wing right-wing"></div>
+      <div class="eye"></div>
+      <div class="beak"></div>
+    </div>
+    <div id="pipe-container"></div>
+    <div id="score">Score: 0</div>
+    <button id="restart-btn" style="display: none;">Restart</button>
+  </div>
+
+  <audio id="flap-sound" src="flap.wav" preload="auto"></audio>
+  <audio id="hit-sound" src="hit.wav" preload="auto"></audio>
+  <audio id="point-sound" src="point.wav" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
