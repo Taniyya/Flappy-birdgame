@@ -3,10 +3,6 @@ const pipeContainer = document.getElementById("pipe-container");
 const scoreDisplay = document.getElementById("score");
 const highScoreDisplay = document.getElementById("high-score");
 
-const flapSound = document.getElementById("flap-sound");
-const hitSound = document.getElementById("hit-sound");
-const pointSound = document.getElementById("point-sound");
-
 let birdY = 250;
 let gravity = 2;
 let jumpHeight = 40;
@@ -26,8 +22,6 @@ document.getElementById("restart-btn").onclick = () => location.reload();
 
 function flap() {
   if (!gameOver) {
-    flapSound.currentTime = 0;
-    flapSound.play();
     birdY -= jumpHeight;
     if (birdY < 0) birdY = 0;
     bird.style.top = birdY + "px";
@@ -99,8 +93,6 @@ function updatePipes() {
       score++;
       scoreDisplay.textContent = `Score: ${score}`;
       pipe.passed = true;
-      pointSound.currentTime = 0;
-      pointSound.play();
       if (score > highScore) {
         highScore = score;
         localStorage.setItem("flappyHighScore", highScore);
@@ -144,8 +136,6 @@ function startGame() {
 function endGame() {
   if (!gameOver) {
     gameOver = true;
-    hitSound.currentTime = 0;
-    hitSound.play();
     clearInterval(gameInterval);
     clearInterval(pipeInterval);
     document.getElementById("restart-btn").style.display = "block";
